@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+const foo = "fooのコメント";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <React.Fragment>
+          <h1>テストの一部</h1>
+          <Cat />
+
+          <input type="text" onClick={()=>{console.log("clicked!")}} />
+
+          <Cat />
+          <Cat />
+      </React.Fragment>
   );
 }
 
+const Cat = () => {
+  return (
+      <div>
+          <div>ねこねこナース{foo}</div>
+          <a>aaaa</a>
+      </div>
+  );
+}
 export default App;
