@@ -9,6 +9,7 @@ function App() {
           <Cat />
 
           <input type="text" onClick={()=>{console.log("clicked!")}} />
+          <input type="button" onMouseLeave={()=>{console.log("aaaa")}}></input>
 
           <Cat />
           <Cat />
