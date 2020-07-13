@@ -1,28 +1,34 @@
 import React from 'react';
 
-const foo = "fooのコメント";
-
 function App() {
-  return (
-      <React.Fragment>
-          <h1>テストの一部</h1>
-          <Cat />
-
-          <input type="text" onClick={()=>{console.log("clicked!")}} />
-          <input type="button" onMouseLeave={()=>{console.log("aaaa")}}></input>
-
-          <Cat />
-          <Cat />
-      </React.Fragment>
-  );
-}
-
-const Cat = () => {
-  return (
+    const profiles = [
+        {name: "Takayuki", age:37},
+        {name: "Shibuya", age:32},
+        {name: "Chizuru", age:33},
+        {name: "kodomo"}
+    ]
+    return (
       <div>
-          <div>ねこねこナース{foo}</div>
-          <a>aaaa</a>
+          {
+              profiles.map((profile, index) => {
+                  return <User name={profile.name} age={profile.age} key={index}/>
+              })
+          }
+
+          <User name={"Hanako"} age={32} />
       </div>
   );
 }
+
+const User = (props) => {
+  return (
+      <div>
+          <div>I am {props.name}, and {props.age}years old!</div>
+      </div>
+  );
+}
+User.defaultProps={
+    age:1
+}
+
 export default App;
