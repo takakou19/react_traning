@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function App() {
     const profiles = [
         {name: "Takayuki", age:37},
         {name: "Shibuya", age:32},
-        {name: "Chizuru", age:33},
-        {name: "kodomo"}
+        {name: "kodomo", age:10},
+        {name: "nakao"}
     ]
     return (
       <div>
@@ -15,7 +16,7 @@ function App() {
               })
           }
 
-          <User name={"Hanako"} age={32} />
+          {/*<User name={"Hanako"} age={32} />*/}
       </div>
   );
 }
@@ -27,8 +28,11 @@ const User = (props) => {
       </div>
   );
 }
-User.defaultProps={
-    age:1
+
+User.propTypes = {
+    name : PropTypes.string,
+    age : PropTypes.number.isRequired
 }
+
 
 export default App;
