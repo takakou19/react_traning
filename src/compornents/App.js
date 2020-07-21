@@ -33,4 +33,3 @@ const mapStateToProps = state => ({ value : state.count.value, value2: state.cou
 const mapDispatchToProps = ({ increment, decrement, kakezan })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
-
