@@ -1,21 +1,12 @@
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
-export const KAKEZAN = 'KAKEZAN'
+import axios from 'axios'
 
-export const increment = () =>{
-    console.log("action！increment")
-    return {
-        type : INCREMENT
-    }
-}
+export const READ_EVENTS = 'READ_EVENTS'
 
-export const decrement = () => {
-    console.log("action！decrement")
-    return {
-        type : DECREMENT
-    }
-}
-export const kakezan = () => {
-    console.log('action!kakezan')
-    return {type : KAKEZAN}
+const ROOT_URL = 'https://udemy-utils.herokuapp.com/api/v1'
+const QUERYSTRING = '?token=token123'
+
+export const readEvents = () => async dispatch => {
+    const response = await axios.get(`${ROOT_URL}/events${QUERYSTRING}`)
+    // console.log(response)
+    dispatch({type : READ_EVENTS, response})
 }
