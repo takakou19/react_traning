@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from 'react-redux';
 import thunk from "redux-thunk";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import './index.css';
 import reducer from './reducers'
 
 import EventsIndex from './compornents/events-index';
+import EventsNew from './compornents/events-new';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(reducer, applyMiddleware(thunk));
@@ -15,8 +17,13 @@ const store = createStore(reducer, applyMiddleware(thunk));
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={ store }>
-          <EventsIndex />
-          {/*{console.log(1)}*/}
+          <BrowserRouter>
+              <Switch>
+                  <Route exact path="/events/new" component={EventsNew}></Route>
+                  <Route exact path="/" component={EventsIndex}></Route>
+              </Switch>
+          </BrowserRouter>
+          {/*<EventsIndex />*/}
       </Provider>
 
   </React.StrictMode>,
